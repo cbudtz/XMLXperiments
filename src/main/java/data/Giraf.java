@@ -3,7 +3,7 @@ package data;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Giraffe {
+public class Giraf {
     private String name;
     private int serialNo;
 

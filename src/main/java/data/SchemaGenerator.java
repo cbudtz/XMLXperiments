@@ -18,12 +18,12 @@ import java.util.ArrayList;
 public class SchemaGenerator {
 
     public static void main(String[] args) throws JAXBException, IOException {
-        Giraffe giraffe = new Giraffe();
-        giraffe.setName("Melman");
-        JAXBContext jaxbContext = JAXBContext.newInstance(Giraffe.class);
+        Giraf giraf = new Giraf();
+        giraf.setName("Melman");
+        JAXBContext jaxbContext = JAXBContext.newInstance(Giraf.class);
         Marshaller marshaller = jaxbContext.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
-        marshaller.marshal(giraffe,System.out);
+        marshaller.marshal(giraf,System.out);
 
         ArrayList<DOMResult> results = new ArrayList<DOMResult>();
         jaxbContext.generateSchema(new SchemaOutputResolver() {
@@ -41,7 +41,7 @@ public class SchemaGenerator {
         Document doc = (Document) result.getNode();
         System.out.println(doc);
         OutputFormat outputFormat = new OutputFormat(doc);
-        FileOutputStream fileOutputStream = new FileOutputStream(new File("giraf.xsd"));
+        FileOutputStream fileOutputStream = new FileOutputStream(new File("src/main/resources/giraf.xsd"));
         XMLSerializer xmlSerializer = new XMLSerializer(fileOutputStream, outputFormat);
         xmlSerializer.serialize(doc);
 
